@@ -1,0 +1,25 @@
+select 
+a.ATTRIB_03  学号,
+a.ATTRIB_04  姓名,
+人员所属,
+分类,
+辅导员,
+a.ATTRIB_05  填报时间,
+a.ATTRIB_12  目前所在地,
+a.ATTRIB_17  体温
+
+FROM (select * from  `fn_form_data`
+where  ATTRIB_01='1f18f5fe6cf54259a34002bc4ebc84a6'  and 
+ATTRIB_05 = date_sub(current_date(),interval 1 day)) a 
+left join (select 
+ATTRIB_03		学号,
+ATTRIB_04		姓名,
+ATTRIB_05		手机号码,
+ATTRIB_06		密码,
+ATTRIB_07		人员所属,
+ATTRIB_32 辅导员	,
+ATTRIB_09		分类
+ FROM `fn_form_data` 
+where  ATTRIB_01='d41f260a94464337bef5232ac754f7aa' ) b
+on a.ATTRIB_03 = b.学号
+where a.ATTRIB_17>=38 or a.ATTRIB_17<35 -- 体温异常范围
