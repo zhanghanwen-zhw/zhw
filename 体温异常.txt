@@ -1,25 +1,25 @@
 select 
-a.ATTRIB_03  Ñ§ºÅ,
-a.ATTRIB_04  ÐÕÃû,
-ÈËÔ±ËùÊô,
-·ÖÀà,
-¸¨µ¼Ô±,
-a.ATTRIB_05  Ìî±¨Ê±¼ä,
-a.ATTRIB_12  Ä¿Ç°ËùÔÚµØ,
-a.ATTRIB_17  ÌåÎÂ
+a.ATTRIB_03  å­¦å·,
+a.ATTRIB_04  å§“å,
+äººå‘˜æ‰€å±ž,
+åˆ†ç±»,
+è¾…å¯¼å‘˜,
+a.ATTRIB_05  å¡«æŠ¥æ—¶é—´,
+a.ATTRIB_12  ç›®å‰æ‰€åœ¨åœ°,
+a.ATTRIB_17  ä½“æ¸©
 
 FROM (select * from  `fn_form_data`
 where  ATTRIB_01='1f18f5fe6cf54259a34002bc4ebc84a6'  and 
 ATTRIB_05 = date_sub(current_date(),interval 1 day)) a 
 left join (select 
-ATTRIB_03		Ñ§ºÅ,
-ATTRIB_04		ÐÕÃû,
-ATTRIB_05		ÊÖ»úºÅÂë,
-ATTRIB_06		ÃÜÂë,
-ATTRIB_07		ÈËÔ±ËùÊô,
-ATTRIB_32 ¸¨µ¼Ô±	,
-ATTRIB_09		·ÖÀà
+ATTRIB_03		å­¦å·,
+ATTRIB_04		å§“å,
+ATTRIB_05		æ‰‹æœºå·ç ,
+ATTRIB_06		å¯†ç ,
+ATTRIB_07		äººå‘˜æ‰€å±ž,
+ATTRIB_32 è¾…å¯¼å‘˜	,
+ATTRIB_09		åˆ†ç±»
  FROM `fn_form_data` 
 where  ATTRIB_01='d41f260a94464337bef5232ac754f7aa' ) b
-on a.ATTRIB_03 = b.Ñ§ºÅ
-where a.ATTRIB_17>=38 or a.ATTRIB_17<35 -- ÌåÎÂÒì³£·¶Î§
+on a.ATTRIB_03 = b.å­¦å·
+where a.ATTRIB_17>=38 or a.ATTRIB_17<35 -- ä½“æ¸©å¼‚å¸¸èŒƒå›´ 
